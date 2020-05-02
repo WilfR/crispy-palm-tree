@@ -3,12 +3,6 @@ from matplotlib import pyplot as plt
 from matplotlib.colors import NoNorm
 import numpy as np
 
-### t1image = nib.load('F:/Home/Projects/LiveProjects/MedicalImages/small/t1/IXI102-HH-1416-T1_fcm.nii.gz')
-### t2image = nib.load('F:/Home/Projects/LiveProjects/MedicalImages/small/t2/IXI102-HH-1416-T2_reg_fcm.nii.gz')
-
-### t1image = nib.load('F:/Home/Projects/LiveProjects/MedicalImages/small/t1/IXI104-HH-1450-T1_fcm.nii.gz')
-### t2image = nib.load('F:/Home/Projects/LiveProjects/MedicalImages/small/t2/IXI104-HH-1450-T2_reg_fcm.nii.gz')
-
 
 t1image = nib.load('F:/Home/Projects/LiveProjects/MedicalImages/small/t1/IXI160-HH-1637-T1_fcm.nii.gz')
 t2image = nib.load('F:/Home/Projects/LiveProjects/MedicalImages/small/t2/IXI160-HH-1637-T2_reg_fcm.nii.gz')
