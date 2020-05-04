@@ -28,6 +28,7 @@ class NiftiDataset():
         self.t2ImageDir = targetImageDir
         self.t1Filenames = glob(os.path.join(self.t1ImageDir, '*.nii*'))
         self.t2Filenames = glob(os.path.join(self.t2ImageDir, '*.nii*'))
+        self.transforms = transforms
 
         t1FileDict={}
         for n in self.t1Filenames :
@@ -45,8 +46,6 @@ class NiftiDataset():
         for key in t1FileDict:
             t1Volume = loadNiftiVolume (t1FileDict[key])
             t2Volume = loadNiftiVolume (t2FileDict[key])
-            for transform in transforms :
-                t1Volume, t2Volume = transform( t1Volume, t2Volume )
             self.t1Images[ key ] = t1Volume
             self.t2Images[ key ] = t2Volume
 
@@ -57,7 +56,12 @@ class NiftiDataset():
 
     def __getitem__(self, idx):
         key = self.keys[idx]
-        return (self.t1Images[key], self.t2Images[key])
+        t1Volume = self.t1Images[ key ]
+        t2Volume = self.t2Images[ key ]
+        for transform in self.transforms :
+                t1Volume, t2Volume = transform( t1Volume, t2Volume )
+
+        return (t1Volume, t2Volume )
 
     def getSlices( self, volumeIndex, sliceIndex, direction) :
         t1Image, t2Image = self.__getitem__(volumeIndex)
