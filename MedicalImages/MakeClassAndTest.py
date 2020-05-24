@@ -1,6 +1,6 @@
 
 
-className     = 'NiftiDataset'
+className     = 'ConvNet'
 classFileName = '%s.py' % className
 testName      = '%sTests' % className
 testFileName  = '%s.py' % testName
