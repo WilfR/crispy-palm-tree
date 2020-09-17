@@ -1,0 +1,15 @@
+@setlocal
+
+set YOUR_REGION=us-central1
+set YOUR_PROJECT_ID=MLService-Manning
+set FUNCTION_NAME=myCloudEcho
+
+rem gcloud functions deploy %FUNCTION_NAME --runtime python37 --trigger-http --allow-unauthenticated
+
+rem curl -X POST "https://%YOUR_REGION-%YOUR_PROJECT_ID.cloudfunctions.net/%FUNCTION_NAME" -H "Content-Type:application/json" --data "{"name":"Keyboard Cat"}"
+
+rem curl -X POST "https://%YOUR_REGION-%YOUR_PROJECT_ID.cloudfunctions.net/%FUNCTION_NAME" -H "Content-Type:application/json" --data "{"name":"Keyboard Cat"}"
+
+
+rem curl -X POST "https://%YOUR_REGION-%YOUR_PROJECT_ID.cloudfunctions.net/%FUNCTION_NAME" -H "Content-Type:application/json" --data '{"name":"Keyboard Cat"}'
+curl -X POST "https://%YOUR_REGION-%YOUR_PROJECT_ID.cloudfunctions.net/%FUNCTION_NAME" -H 'Content-Type:application/json' --data '{"message":"bite me"}'
